@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Pedra, Papel & Tesoura | O Jogo</title>
+  </head>
+  <body>
+    <h1>Vamos jogar Pedra, Papel e Tesoura!</h1>
+    <main>
+      <details class="regras-container">
+        <summary>Regras do Jogo</summary>
+
+        <p>Você jogará contra o computador</p>
+        <p>Você poderá escolher entre Pedra, Papel ou Tesoura</p>
+        <p>O primeiro a fazer três pontos VENCE!</p>
+
+        <p>Aqui estão as regras para conseguir pontuar!</p>
+        <ul>
+          <li>Pedra quebra Tesoura</li>
+          <li>Tesoura corta o Papel</li>
+          <li>Papel embrulha Pedra</li>
+        </ul>
+        <p>
+          Se o jogador e o computador escolherem a mesma opção (Por exemplo:
+          Papel e Papel) ninguém recebe o ponto!
+        </p>
+      </details>
+
+      <div class="pontuacao-container">
+        <strong>
+          Você pontuou: <span class="pontos" id="jogador-pontuou">0</span>
+        </strong>
+        <strong>
+          Computador pontuou:
+          <span class="pontos" id="computador-pontuou">0</span>
+        </strong>
+      </div>
+      <section>
+        <div class="resultado-container">
+          <p id="resultado-msg"></p>
+          <p id="vencedor-msg"></p>
+          <button class="btn" id="reiniciar-jogo-butao">
+            Jogar novamente?
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
