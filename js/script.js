@@ -32,32 +32,47 @@ function PegarResultadoRound(opcaoUsuario) {
 const pontosDoJogador = document.getElementById("jogador-pontuou");
 const pontosDoComputadorMsg = document.getElementById("computador-pontuou");
 const resultadoDoRoundMsg = document.getElementById("resultado-msg");
+const vencedorMensagem = document.getElementById("vencedor-msg");
 const opcaoContainer = document.getElementById("opcao-container");
 const resetarJogoBtn = document.getElementById("reiniciar-jogo-butao");
+
+function desativarBotoes() {
+  pedraBtn.disabled = true;
+  papelBtn.disabled = true;
+  tesouraBtn.disabled = true;
+}
+
+function ativarBotoes() {
+  pedraBtn.disabled = false;
+  papelBtn.disabled = false;
+  tesouraBtn.disabled = false;
+}
 
 function mostrarResultado(opcaoUsuario) {
   resultadoDoRoundMsg.innerText = PegarResultadoRound(opcaoUsuario);
   pontosDoComputadorMsg.innerText = pontosComputador;
   pontosDoJogador.innerText = pontosPlayer;
   if (pontosPlayer === 3 || pontosComputador === 3) {
-    resultadoDoRoundMsg.innerText = `${
+    vencedorMensagem.innerText = `${
       pontosPlayer === 3 ? "Player" : "Computador"
-    } Venceu o jogo!`;
+    } venceu o jogo!`;
 
     resetarJogoBtn.style.display = "block";
     opcaoContainer.style.display = "none";
+    console.log(desativarBotoes);
   }
 }
 
 function reiniciarJogo() {
-  // ALTERAÇÕES POSSÍVEISS
   pontosPlayer = 0;
   pontosComputador = 0;
-  pontosDoJogador.innerText = pontosPlayer;
   pontosDoComputadorMsg.innerText = pontosComputador;
-  resultadoDoRoundMsg.innerText = "";
-  resetarJogoBtn.style.display = "none";
+  pontosDoJogador.innerText = pontosPlayer;
+  resetarJogoBtn.style.display = "";
   opcaoContainer.style.display = "block";
+  vencedorMensagem.innerText = "";
+  resultadoDoRoundMsg.innerText = "";
+  ativarBotoes();
 }
 
 resetarJogoBtn.addEventListener("click", reiniciarJogo);
